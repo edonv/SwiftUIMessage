@@ -66,7 +66,7 @@ public struct MessageComposeView: UIViewControllerRepresentable {
 // MARK: - MFMessageComposeViewControllerDelegate
 
 extension MessageComposeView {
-    public static let MCViewDidFinishResultKey = "SwiftUIMessage.MCViewDidFinishResultKey"
+    public static let DidFinishResultKey = "SwiftUIMessage.MessageComposeViewDidFinishResultKey"
     
     public class MCCoordinator: NSObject, MFMessageComposeViewControllerDelegate {
         internal var parent: MessageComposeView
@@ -77,10 +77,10 @@ extension MessageComposeView {
         
         public func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
             NotificationCenter.default.post(
-                name: .MCViewDidFinish,
+                name: .MessageComposeViewDidFinish,
                 object: parent,
                 userInfo: [
-                    MessageComposeView.MCViewDidFinishResultKey: result
+                    MessageComposeView.DidFinishResultKey: result
                 ])
             controller.dismiss(animated: true)
         }
