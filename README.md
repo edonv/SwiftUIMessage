@@ -1,3 +1,3 @@
 # SwiftUIMessage
 
-A description of this package.
+SwiftUI wrapper of MessageUI.
