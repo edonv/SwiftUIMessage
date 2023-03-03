@@ -10,7 +10,7 @@ import SwiftUI
 extension View where Self == MessageComposeView {
     /// Disables the camera/attachment button in the message composition view.
     ///
-    /// In iOS 7.0 and later, call this method to disable the camera/attachment button in the message composition view.
+    /// Call this method to disable the camera/attachment button in the message composition view.
     public func disableUserAttachments(_ disable: Bool = true) -> MessageComposeView {
         var newView = self
         newView.disableUserAttachments = disable
