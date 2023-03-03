@@ -88,6 +88,7 @@ extension MessageComposeView {
 }
 
 // MARK: - Initial Message Info
+
 extension MessageComposeView {
     public struct MessageInfo {
         public init(recipients: [String]? = nil, subject: String? = nil, body: String? = nil, message: MSMessage? = nil) {
