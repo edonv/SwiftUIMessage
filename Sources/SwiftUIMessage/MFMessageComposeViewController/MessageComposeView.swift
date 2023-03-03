@@ -159,7 +159,7 @@ extension MessageComposeView {
     }
 }
 
-struct MailComposeView_Previews: PreviewProvider {
+struct MessageComposeView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 14.0, *) {
             MessageComposeView(.init(
