@@ -90,6 +90,7 @@ extension MessageComposeView {
 // MARK: - Initial Message Info
 
 extension MessageComposeView {
+    /// Used to set the initial message information.
     public struct MessageInfo {
         public init(recipients: [String]? = nil, subject: String? = nil, body: String? = nil, message: MSMessage? = nil) {
             self.recipients = recipients
