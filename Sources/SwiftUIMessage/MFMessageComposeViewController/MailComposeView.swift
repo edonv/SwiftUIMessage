@@ -26,26 +26,26 @@ public struct MailComposeView: UIViewControllerRepresentable {
     
     public func makeUIViewController(context: Context) -> MFMessageComposeViewController {
         let composeVC = MFMessageComposeViewController()
-//        composeVC.messageComposeDelegate = context.coordinator
+        composeVC.messageComposeDelegate = context.coordinator
         
-//        composeVC.recipients = initialMessageInfo.recipients
-//        composeVC.subject = initialMessageInfo.subject
-//        composeVC.body = initialMessageInfo.body
-//        composeVC.message = initialMessageInfo.message
-//
-//        if disableUserAttachments {
-//            composeVC.disableUserAttachments()
-//        }
+        composeVC.recipients = initialMessageInfo.recipients
+        composeVC.subject = initialMessageInfo.subject
+        composeVC.body = initialMessageInfo.body
+        composeVC.message = initialMessageInfo.message
+
+        if disableUserAttachments {
+            composeVC.disableUserAttachments()
+        }
         
-//        for a in attachments {
-//            switch a {
-//            case .url(let attachmentURL, let alternateFilename):
-//                composeVC.addAttachmentURL(attachmentURL, withAlternateFilename: alternateFilename)
-//
-//            case .data(let attachmentData, let typeIdentifier, let fileName):
-//                composeVC.addAttachmentData(attachmentData, typeIdentifier: typeIdentifier, filename: fileName)
-//            }
-//        }
+        for a in attachments {
+            switch a {
+            case .url(let attachmentURL, let alternateFilename):
+                composeVC.addAttachmentURL(attachmentURL, withAlternateFilename: alternateFilename)
+
+            case .data(let attachmentData, let typeIdentifier, let fileName):
+                composeVC.addAttachmentData(attachmentData, typeIdentifier: typeIdentifier, filename: fileName)
+            }
+        }
         
         return composeVC
     }
@@ -54,9 +54,9 @@ public struct MailComposeView: UIViewControllerRepresentable {
         
     }
     
-//    public func makeCoordinator() -> MCCoordinator {
-//        MCCoordinator(self)
-//    }
+    public func makeCoordinator() -> MCCoordinator {
+        MCCoordinator(self)
+    }
     
     public mutating func addAttachments(_ attachments: [Attachment]) {
         self.attachments.append(contentsOf: attachments)
