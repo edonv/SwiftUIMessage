@@ -1,5 +1,5 @@
 //
-//  MailComposeView+ViewModifiers.swift
+//  MessageComposeView+ViewModifiers.swift
 //  
 //
 //  Created by Edon Valdman on 3/2/23.
