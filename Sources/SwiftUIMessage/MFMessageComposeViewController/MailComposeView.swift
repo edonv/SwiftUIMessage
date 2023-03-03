@@ -95,17 +95,17 @@ extension MailComposeView {
         /// If you want to provide an initial array of one or more recipients for a message, do so before you display it. After the message is displayed you cannot change the value of this property.
         ///
         /// Each string in the array should contain the phone number of the intended recipient.
-        var recipients: [String]?
+        public var recipients: [String]?
         
         /// The initial subject of the message.
         ///
         /// If you want to provide an initial subject for a message, do so before you display it. After the message is displayed you cannot change the value of this property.
-        var subject: String?
+        public var subject: String?
         
         /// The initial content of the message.
         ///
         /// If you want to provide initial content in the body of a message, do so before you display it. After the message is displayed you cannot change the value of this property.
-        var body: String?
+        public var body: String?
         
         /// A message object from your iMessage app extension.
         ///
@@ -114,7 +114,7 @@ extension MailComposeView {
         /// By default, this property is set to `nil`.
         ///
         /// For more information on creating iMessage apps, see [Messages](https://developer.apple.com/documentation/messages).
-        var message: MSMessage?
+        public var message: MSMessage?
     }
 }
 
