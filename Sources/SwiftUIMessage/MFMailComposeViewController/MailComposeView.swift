@@ -84,14 +84,14 @@ extension MailComposeView {
 extension MailComposeView {
     /// Used to set mail fields programmatically.
     public struct MailInfo {
-        public init(subject: String = "", toRecipients: [String]? = nil, ccRecipients: [String]? = nil, bccRecipients: [String]? = nil, body: String = "", bodyIsHTML: Bool = false, preferredSendingEmailAddress: String = "") {
-            self.subject = subject
+        public init(subject: String? = nil, toRecipients: [String]? = nil, ccRecipients: [String]? = nil, bccRecipients: [String]? = nil, body: String = "", bodyIsHTML: Bool = false, preferredSendingEmailAddress: String? = nil) {
+            self.subject = subject ?? ""
             self.toRecipients = toRecipients
             self.ccRecipients = ccRecipients
             self.bccRecipients = bccRecipients
             self.body = body
             self.bodyIsHTML = bodyIsHTML
-            self.preferredSendingEmailAddress = preferredSendingEmailAddress
+            self.preferredSendingEmailAddress = preferredSendingEmailAddress ?? ""
         }
         
         /// Sets the initial text for the subject line of the email.
