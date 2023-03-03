@@ -26,6 +26,11 @@ extension View where Self == MessageComposeView {
 }
 
 extension MessageComposeView {
+    /// Types of attachments to include in a text message.
+    ///
+    /// > Important: When sending attachments, it'll first be confirmed internally that they can be used by checking ``MessageComposeView/canSendAttachments()``.
+    ///
+    /// > Important: When using an attachment of type ``MessageComposeView/Attachment/data(attachmentData:typeIdentifier:fileName:)``, it'll first be confirmed internally that it can be used by checking it against ``MessageComposeView/isSupportedAttachmentUTI(_:)``.
     public enum Attachment {
         /// Attaches a specified file to the message.
         ///
@@ -37,7 +42,10 @@ extension MessageComposeView {
         
         /// Attaches arbitrary content to the message.
         ///
-        /// This method is especially useful when the attachment you want to add to a message does not have a file system representation. This can be the case, for example, for programmatically composed audiovisual content.
+        /// > Important: When using this type of attachment, it'll first be confirmed internally that it can be used by checking it against ``MessageComposeView/isSupportedAttachmentUTI(_:)``.
+        ///
+        /// This type is especially useful when the attachment you want to add to a message does not have a file system representation. This can be the case, for example, for programmatically composed audiovisual content.
+        ///
         /// - Parameters:
         ///   - attachmentData: Content in the form of an [NSData](https://developer.apple.com/documentation/foundation/nsdata) object to attach to the message. Must not be `nil`.
         ///   - alternateFilename: A valid Uniform Type Identifier (UTI) appropriate for the attachment data. See [Uniform Type Identifiers Reference](https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257). Must not be `nil`.
