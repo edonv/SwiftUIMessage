@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-extension View where Self == MailComposeView {
+extension View where Self == MessageComposeView {
     /// Disables the camera/attachment button in the message composition view.
     ///
     /// In iOS 7.0 and later, call this method to disable the camera/attachment button in the message composition view.
-    func disableUserAttachments(_ disable: Bool = true) -> MailComposeView {
+    func disableUserAttachments(_ disable: Bool = true) -> MessageComposeView {
         var newView = self
         newView.disableUserAttachments = disable
         return newView
     }
     
     /// Attaches a specified attachment to the message.
-    func withAttachments(_ attachments: MailComposeView.Attachment...) -> MailComposeView {
+    func withAttachments(_ attachments: MessageComposeView.Attachment...) -> MessageComposeView {
         var newView = self
         newView.addAttachments(attachments)
         return newView
     }
 }
 
-extension MailComposeView {
+extension MessageComposeView {
     public enum Attachment {
         /// Attaches a specified file to the message.
         ///
