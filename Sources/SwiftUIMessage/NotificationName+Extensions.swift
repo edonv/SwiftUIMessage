@@ -15,4 +15,6 @@ extension Notification.Name {
     
     /// Posted when a ``MailComposeView`` completes and closes.
     ///
+    /// Upon receiving this notification, query its `userInfo` dictionary with the ``MailComposeView/DidFinishResultKey`` and ``MailComposeView/DidFinishErrorKey`` keys. They will be of [MessageComposeResult](https://developer.apple.com/documentation/messageui/messagecomposeresult) and `Error?` types.
+    public static let MailComposeViewDidFinish = Notification.Name("SwiftUIMessage.MailComposeViewDidFinish")
 }
