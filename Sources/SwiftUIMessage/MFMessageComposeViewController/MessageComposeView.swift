@@ -9,13 +9,13 @@ import SwiftUI
 import MessageUI
 import Messages
 
-/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the ``Notifiction.Name/MCViewDidFinish`` notification.
+/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
 public struct MessageComposeView: UIViewControllerRepresentable {
     public var initialMessageInfo: MessageInfo
     
     /// Disables the camera/attachment button in the message composition view.
     ///
-    /// In iOS 7.0 and later, set this property to `true` to disable the camera/attachment button in the message composition view.
+    /// Set this property to `true` to disable the camera/attachment button in the message composition view.
     internal var disableUserAttachments: Bool = false
     
     private var attachments: [Attachment] = []
