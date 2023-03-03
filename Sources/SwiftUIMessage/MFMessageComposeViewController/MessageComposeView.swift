@@ -1,5 +1,5 @@
 //
-//  MailComposeView.swift
+//  MessageComposeView.swift
 //  
 //
 //  Created by Edon Valdman on 3/2/23.
@@ -10,7 +10,7 @@ import MessageUI
 import Messages
 
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the ``Notifiction.Name/MCViewDidFinish`` notification.
-public struct MailComposeView: UIViewControllerRepresentable {
+public struct MessageComposeView: UIViewControllerRepresentable {
     public var initialMessageInfo: MessageInfo
     
     /// Disables the camera/attachment button in the message composition view.
@@ -65,13 +65,13 @@ public struct MailComposeView: UIViewControllerRepresentable {
 
 // MARK: - MFMessageComposeViewControllerDelegate
 
-extension MailComposeView {
+extension MessageComposeView {
     public static let MCViewDidFinishResultKey = "SwiftUIMessage.MCViewDidFinishResultKey"
     
     public class MCCoordinator: NSObject, MFMessageComposeViewControllerDelegate {
-        internal var parent: MailComposeView
+        internal var parent: MessageComposeView
         
-        internal init(_ parent: MailComposeView) {
+        internal init(_ parent: MessageComposeView) {
             self.parent = parent
         }
         
@@ -80,7 +80,7 @@ extension MailComposeView {
                 name: .MCViewDidFinish,
                 object: parent,
                 userInfo: [
-                    MailComposeView.MCViewDidFinishResultKey: result
+                    MessageComposeView.MCViewDidFinishResultKey: result
                 ])
             controller.dismiss(animated: true)
         }
@@ -88,7 +88,7 @@ extension MailComposeView {
 }
 
 // MARK: - Initial Message Info
-extension MailComposeView {
+extension MessageComposeView {
     public struct MessageInfo {
         public init(recipients: [String]? = nil, subject: String? = nil, body: String? = nil, message: MSMessage? = nil) {
             self.recipients = recipients
@@ -127,7 +127,7 @@ extension MailComposeView {
 
 // MARK: - Convenience Access to Class Functions
 
-extension MailComposeView {
+extension MessageComposeView {
     /// Returns a Boolean value that indicates whether the current device is capable of sending text messages.
     ///
     /// Always call this method before attempting to present the message compose view controller. A device may be unable to send messages if it does not support messaging or if it is not currently configured to send messages. This method applies only to the ability to send text messages via iMessage, SMS, and MMS.
@@ -161,7 +161,7 @@ extension MailComposeView {
 struct MailComposeView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 14.0, *) {
-            MailComposeView(.init(
+            MessageComposeView(.init(
 //                recipients: [
 //                "***REMOVED***",
 //                "***REMOVED***"
