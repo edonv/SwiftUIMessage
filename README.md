@@ -1,5 +1,8 @@
 # SwiftUIMessage
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fedonv%2FSwiftUIMessage%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/edonv/SwiftUIMessage)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fedonv%2FSwiftUIMessage%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/edonv/SwiftUIMessage)
+
 `SwiftUI` wrapper of [MessageUI](https://developer.apple.com/documentation/messageui).
 
 Always be sure to call `MailComposeView.canSendMail()` and `MessageComposeView.canSendText()` in-line to confirm that you can actually use them on that device. And graphical glitches may occur if you don't include the `.ignoresSafeArea()` view modifier.
