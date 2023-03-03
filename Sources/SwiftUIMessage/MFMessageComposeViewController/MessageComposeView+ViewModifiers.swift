@@ -17,7 +17,7 @@ extension View where Self == MessageComposeView {
         return newView
     }
     
-    /// Attaches a specified attachment to the message.
+    /// Attaches the specified attachment(s) to the message.
     public func withAttachments(_ attachments: MessageComposeView.Attachment...) -> MessageComposeView {
         var newView = self
         newView.addAttachments(attachments)
