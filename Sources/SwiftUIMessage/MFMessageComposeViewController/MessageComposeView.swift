@@ -149,26 +149,26 @@ extension MessageComposeView {
     ///
     /// To be notified of changes in the availability of sending text messages, register as an observer of the [MFMessageComposeViewControllerTextMessageAvailabilityDidChange](https://developer.apple.com/documentation/foundation/nsnotification/name/1614064-mfmessagecomposeviewcontrollerte) notification.
     /// - Returns: `true` if the device can send text messages or `false` if it cannot.
-    static func canSendText() -> Bool {
+    public static func canSendText() -> Bool {
         MFMessageComposeViewController.canSendText()
     }
     
     /// Indicates whether or not messages can include attachments.
     /// - Returns: `true` if the device can send attachments in MMS or iMessage messages, or `false` otherwise.
-    static func canSendAttachments() -> Bool {
+    public static func canSendAttachments() -> Bool {
         MFMessageComposeViewController.canSendAttachments()
     }
     
     /// Indicates whether or not messages can include subject lines, according to the user’s configuration in Settings.
     /// - Returns: `true` if the device can include subject lines in messages, or `false` otherwise.
-    static func canSendSubject() -> Bool {
+    public static func canSendSubject() -> Bool {
         MFMessageComposeViewController.canSendSubject()
     }
     
     /// Indicates whether or not the message can accept a file, with the specified UTI, as an attachment.
     /// - Parameter uti: The UTI (Uniform Type Identifier) in question. See [Uniform Type Identifiers Reference](https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257).
     /// - Returns: `true` if a file with the specified UTI can be attached to the message, or `false` otherwise.
-    static func isSupportedAttachmentUTI(_ uti: String) -> Bool {
+    public static func isSupportedAttachmentUTI(_ uti: String) -> Bool {
         MFMessageComposeViewController.isSupportedAttachmentUTI(uti)
     }
 }
