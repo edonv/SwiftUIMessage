@@ -9,7 +9,7 @@ import SwiftUI
 import MessageUI
 import Messages
 
-/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the ``Notifiction.Name/MCViewDidFinish`` notification.
+/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
 public struct MailComposeView: UIViewControllerRepresentable {
     public var initialMailInfo: MailInfo
     
@@ -128,7 +128,7 @@ extension MailComposeView {
         ///
         /// `true` if ``MailComposeView/MailInfo/body`` contains HTML content, or `false` if it contains plain text.
         ///
-        /// If the user has a signature file, the body content is inserted immediately before the signature. If you want to include images with your content, you must attach the images separately using the ``addAttachmentData(_:mimeType:fileName:)`` method.
+        /// If the user has a signature file, the body content is inserted immediately before the signature. If you want to include images with your content, you must attach the images separately using the `MailComposeView.withAttachments(_:)` method.
         public var bodyIsHTML: Bool = false
         
         /// The preferred email address to use in the From field, if such an address is available.
