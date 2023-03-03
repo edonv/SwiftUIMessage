@@ -29,7 +29,11 @@ public struct MessageComposeView: UIViewControllerRepresentable {
         composeVC.messageComposeDelegate = context.coordinator
         
         composeVC.recipients = initialMessageInfo.recipients
-        composeVC.subject = initialMessageInfo.subject
+        
+        if MessageComposeView.canSendSubject() {
+            composeVC.subject = initialMessageInfo.subject
+        }
+        
         composeVC.body = initialMessageInfo.body
         composeVC.message = initialMessageInfo.message
 
@@ -37,13 +41,17 @@ public struct MessageComposeView: UIViewControllerRepresentable {
             composeVC.disableUserAttachments()
         }
         
-        for a in attachments {
-            switch a {
-            case .url(let attachmentURL, let alternateFilename):
-                composeVC.addAttachmentURL(attachmentURL, withAlternateFilename: alternateFilename)
-
-            case .data(let attachmentData, let typeIdentifier, let fileName):
-                composeVC.addAttachmentData(attachmentData, typeIdentifier: typeIdentifier, filename: fileName)
+        if MessageComposeView.canSendAttachments() {
+            for a in attachments {
+                switch a {
+                case .url(let attachmentURL, let alternateFilename):
+                    composeVC.addAttachmentURL(attachmentURL, withAlternateFilename: alternateFilename)
+                    
+                case .data(let attachmentData, let typeIdentifier, let fileName):
+                    if MessageComposeView.isSupportedAttachmentUTI(typeIdentifier) {
+                        composeVC.addAttachmentData(attachmentData, typeIdentifier: typeIdentifier, filename: fileName)
+                    }
+                }
             }
         }
         
