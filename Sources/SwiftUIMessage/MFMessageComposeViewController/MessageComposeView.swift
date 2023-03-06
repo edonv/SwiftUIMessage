@@ -11,7 +11,10 @@ import Messages
 
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
 public struct MessageComposeView: UIViewControllerRepresentable {
+    public typealias CompletionHandler = (_ result: MessageComposeResult) -> Void
+    
     public var initialMessageInfo: MessageInfo
+    public var completionHandler: CompletionHandler?
     
     /// Disables the camera/attachment button in the message composition view.
     ///
@@ -20,8 +23,15 @@ public struct MessageComposeView: UIViewControllerRepresentable {
     
     private var attachments: [Attachment] = []
     
-    public init(_ initialMessageInfo: MessageInfo) {
+    /// Creates a new ``MessageComposeView``.
+    ///
+    /// - Note: If you need the completion result elsewhere in your codebase, you can observe the `.MessageComposeViewDidFinish` notification. Upon receiving the notification, query its `userInfo` dictionary with the ``MessageComposeView/DidFinishResultKey`` key. It will be of [MessageComposeResult](https://developer.apple.com/documentation/messageui/messagecomposeresult) type.
+    /// - Parameters:
+    ///   - initialMessageInfo: Sets the initial values of the ``MessageComposeView``.
+    ///   - completionHandler: A handler that is called when the view is closed.
+    public init(_ initialMessageInfo: MessageInfo, _ completionHandler: CompletionHandler? = nil) {
         self.initialMessageInfo = initialMessageInfo
+        self.completionHandler = completionHandler
     }
     
     public func makeUIViewController(context: Context) -> MFMessageComposeViewController {
@@ -84,12 +94,15 @@ extension MessageComposeView {
         }
         
         public func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+            parent.completionHandler?(result)
+            
             NotificationCenter.default.post(
                 name: .MessageComposeViewDidFinish,
                 object: parent,
                 userInfo: [
                     MessageComposeView.DidFinishResultKey: result
                 ])
+            
             controller.dismiss(animated: true)
         }
     }
