@@ -5,6 +5,12 @@
 
 `SwiftUI` wrapper of [MessageUI](https://developer.apple.com/documentation/messageui).
 
+## Documentation
+
+Documentation for `SwiftUIContacts` is hosted on [Swift Package Index](https://swiftpackageindex.com/edonv/SwiftUIMessage/documentation/swiftuimessage).
+
+## Usage Notes
+
 Always be sure to call `MailComposeView.canSendMail()` and `MessageComposeView.canSendText()` in-line to confirm that you can actually use them on that device. And graphical glitches may occur if you don't include the `.ignoresSafeArea()` view modifier.
 
 It's generally best to use them in a `.sheet()` modifier, but the code below is just for the sake of example.
