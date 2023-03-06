@@ -11,12 +11,22 @@ import Messages
 
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
 public struct MailComposeView: UIViewControllerRepresentable {
+    public typealias CompletionHandler = (_ result: MFMailComposeResult, _ error: Error?) -> Void
+    
     public var initialMailInfo: MailInfo
+    public var completionHandler: CompletionHandler?
     
     private var attachments: [AttachmentData] = []
     
-    public init(_ initialMailInfo: MailInfo) {
+    /// Creates a new ``MailComposeView``.
+    ///
+    /// - Note: If you need the completion result elsewhere in your codebase, you can observe the `.MailComposeViewDidFinish` notification. Upon receiving this notification, query its `userInfo` dictionary with the ``MailComposeView/DidFinishResultKey`` and ``MailComposeView/DidFinishErrorKey`` keys. They will be of [MessageComposeResult](https://developer.apple.com/documentation/messageui/messagecomposeresult) and `Error?` types.
+    /// - Parameters:
+    ///   - initialMailInfo: Sets the initial values of the ``MailComposeView``.
+    ///   - completionHandler: A handler that is called when the view is closed.
+    public init(_ initialMailInfo: MailInfo, _ completionHandler: CompletionHandler? = nil) {
         self.initialMailInfo = initialMailInfo
+        self.completionHandler = completionHandler
     }
     
     public func makeUIViewController(context: Context) -> MFMailComposeViewController {
@@ -67,6 +77,8 @@ extension MailComposeView {
         }
         
         public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            parent.completionHandler?(result, error)
+            
             NotificationCenter.default.post(
                 name: .MailComposeViewDidFinish,
                 object: parent,
@@ -74,6 +86,7 @@ extension MailComposeView {
                     MailComposeView.DidFinishResultKey: result,
                     MailComposeView.DidFinishErrorKey: error as Any
                 ])
+            
             controller.dismiss(animated: true)
         }
     }
