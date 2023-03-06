@@ -7,7 +7,7 @@
 
 ## Documentation
 
-Documentation for `SwiftUIContacts` is hosted on [Swift Package Index](https://swiftpackageindex.com/edonv/SwiftUIMessage/documentation/swiftuimessage).
+Documentation for `SwiftUIMessage` is hosted on [Swift Package Index](https://swiftpackageindex.com/edonv/SwiftUIMessage/documentation/swiftuimessage).
 
 ## Usage Notes
 
