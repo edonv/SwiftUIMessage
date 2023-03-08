@@ -18,6 +18,8 @@ extension View where Self == MessageComposeView {
     }
     
     /// Attaches the specified attachment(s) to the message.
+    ///
+    /// Internally, provided attachment(s) will only be attached if ``MessageComposeView/canSendAttachments()`` returns `true`. If the attachment is a ``MessageComposeView/Attachment/data(attachmentData:typeIdentifier:fileName:)`` type, it will first be confirmed that ``MessageComposeView/isSupportedAttachmentUTI(_:)`` returns `true`.
     public func withAttachments(_ attachments: MessageComposeView.Attachment...) -> MessageComposeView {
         var newView = self
         newView.addAttachments(attachments)
