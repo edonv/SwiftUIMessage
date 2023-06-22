@@ -158,7 +158,7 @@ extension MailComposeView {
     ///
     /// You should call this method before attempting to display the mail composition interface. If it returns false, you must not display the mail composition interface.
     /// - Returns: `true` if the device is configured for sending email or `false` if it is not.
-    static func canSendMail() -> Bool {
+    public static func canSendMail() -> Bool {
         MFMailComposeViewController.canSendMail()
     }
 }
