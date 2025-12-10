@@ -23,6 +23,12 @@ extension MailComposeView {
     ///
     /// - Note: You may attach multiple files (using different file names).
     public struct AttachmentData {
+        public init(attachment: Data, mimeType: String, fileName: String) {
+            self.attachment = attachment
+            self.mimeType = mimeType
+            self.fileName = fileName
+        }
+        
         /// The data to attach. Typically, this is the contents of a file that you want to include.
         var attachment: Data
         
