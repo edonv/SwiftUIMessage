@@ -76,7 +76,7 @@ public struct MessageComposeView: UIViewControllerRepresentable {
         MCCoordinator(self)
     }
     
-    public mutating func addAttachments(_ attachments: [Attachment]) {
+    mutating func addAttachments(_ attachments: [Attachment]) {
         self.attachments.append(contentsOf: attachments)
     }
 }
