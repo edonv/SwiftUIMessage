@@ -189,13 +189,9 @@ extension MessageComposeView {
 struct MessageComposeView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 14.0, *) {
-            MessageComposeView(.init(
-//                recipients: [
-//                "***REMOVED***",
-//                "***REMOVED***"
-//            ],
-//                                  body: "Test"
-            ))
+            MessageComposeView(
+                .init()
+            )
             .ignoresSafeArea()
         } else {
             // Fallback on earlier versions

@@ -182,13 +182,9 @@ extension MailComposeView {
 struct MailComposeView_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOS 14.0, *) {
-            MailComposeView(.init(
-//                recipients: [
-//                "***REMOVED***",
-//                "***REMOVED***"
-//            ],
-//                                  body: "Test"
-            ))
+            MailComposeView(
+                .init()
+            )
             .ignoresSafeArea()
         } else {
             // Fallback on earlier versions
