@@ -11,6 +11,7 @@ import Messages
 
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
 public struct MailComposeView: UIViewControllerRepresentable {
+    /// Callback type used when a ``MailComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = (_ result: MFMailComposeResult, _ error: Error?) -> Void
     
     public var initialMailInfo: MailInfo
@@ -24,7 +25,10 @@ public struct MailComposeView: UIViewControllerRepresentable {
     /// - Parameters:
     ///   - initialMailInfo: Sets the initial values of the ``MailComposeView``.
     ///   - completionHandler: A handler that is called when the view is closed.
-    public init(_ initialMailInfo: MailInfo, _ completionHandler: CompletionHandler? = nil) {
+    public init(
+        _ initialMailInfo: MailInfo,
+        _ completionHandler: CompletionHandler? = nil
+    ) {
         self.initialMailInfo = initialMailInfo
         self.completionHandler = completionHandler
     }
@@ -37,14 +41,18 @@ public struct MailComposeView: UIViewControllerRepresentable {
         composeVC.setToRecipients(initialMailInfo.toRecipients)
         composeVC.setCcRecipients(initialMailInfo.ccRecipients)
         composeVC.setBccRecipients(initialMailInfo.bccRecipients)
-        composeVC.setMessageBody(initialMailInfo.body,
-                                 isHTML: initialMailInfo.bodyIsHTML)
+        composeVC.setMessageBody(
+            initialMailInfo.body,
+            isHTML: initialMailInfo.bodyIsHTML
+        )
         composeVC.setPreferredSendingEmailAddress(initialMailInfo.preferredSendingEmailAddress)
         
         for a in attachments {
-            composeVC.addAttachmentData(a.attachment,
-                                        mimeType: a.mimeType,
-                                        fileName: a.fileName)
+            composeVC.addAttachmentData(
+                a.attachment,
+                mimeType: a.mimeType,
+                fileName: a.fileName
+            )
         }
         
         return composeVC
@@ -97,7 +105,15 @@ extension MailComposeView {
 extension MailComposeView {
     /// Used to set mail fields programmatically.
     public struct MailInfo {
-        public init(subject: String? = nil, toRecipients: [String]? = nil, ccRecipients: [String]? = nil, bccRecipients: [String]? = nil, body: String = "", bodyIsHTML: Bool = false, preferredSendingEmailAddress: String? = nil) {
+        public init(
+            subject: String? = nil,
+            toRecipients: [String]? = nil,
+            ccRecipients: [String]? = nil,
+            bccRecipients: [String]? = nil,
+            body: String = "",
+            bodyIsHTML: Bool = false,
+            preferredSendingEmailAddress: String? = nil
+        ) {
             self.subject = subject ?? ""
             self.toRecipients = toRecipients
             self.ccRecipients = ccRecipients

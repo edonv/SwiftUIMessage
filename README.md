@@ -16,20 +16,24 @@ Always be sure to call `MailComposeView.canSendMail()` and `MessageComposeView.c
 It's generally best to use them in a `.sheet()` modifier, but the code below is just for the sake of example.
 
 ## Examples
+
 ### MailComposeView
+
 ```swift
 // This will return false if the device cannot use Apple Mail.
 if MailComposeView.canSendMail() {
     MailComposeView(
-        .init(subject: "Subject",
-              toRecipients: [
-                  "dummy@gmail.com"
-              ],
-              ccRecipients: nil,
-              bccRecipients: nil,
-              body: "This is an example email body.",
-              bodyIsHTML: false,
-              preferredSendingEmailAddress: nil)
+        .init(
+            subject: "Subject",
+            toRecipients: [
+                "dummy@gmail.com"
+            ],
+            ccRecipients: nil,
+            bccRecipients: nil,
+            body: "This is an example email body.",
+            bodyIsHTML: false,
+            preferredSendingEmailAddress: nil
+        )
     )
     .ignoresSafeArea()
 } else {
@@ -39,15 +43,18 @@ if MailComposeView.canSendMail() {
 ```
 
 ### MessageComposeView
+
 ```swift
 if MessageComposeView.canSendText() {
     MessageComposeView(
-        .init(recipients: [
-                  "111-111-1111",
-                  "+1-111-111-1112"
-              ],
-              subject: "This is an MMS subject line, but it won't be inlcuded if the device doesn't have them enabled.",
-              body: "This is an SMS text body.")
+        .init(
+            recipients: [
+                "111-111-1111",
+                "+1-111-111-1112"
+            ],
+            subject: "This is an MMS subject line, but it won't be inlcuded if the device doesn't have them enabled.",
+            body: "This is an SMS text body."
+        )
     )
     .ignoresSafeArea()
 } else {
