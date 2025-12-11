@@ -35,7 +35,7 @@ extension MailComposeView {
         /// The MIME type of the specified data. (For example, the MIME type for a JPEG image is `image/jpeg`.) For a list of valid MIME types, see [http://www.iana.org/assignments/media-types/](http://www.iana.org/assignments/media-types/).
         public var mimeType: String
         
-        /// The preferred filename to associate with the data. This is the default name applied to the file when it is transferred to its destination. Any path separator (/) characters in the filename are converted to underscore (\_) characters prior to transmission.
+        /// The preferred filename to associate with the data. This is the default name applied to the file when it is transferred to its destination. Any path separator (`/`) characters in the filename are converted to underscore (`_`) characters prior to transmission.
         public var fileName: String
     }
 }
