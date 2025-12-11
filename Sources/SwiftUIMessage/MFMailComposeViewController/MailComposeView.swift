@@ -11,6 +11,7 @@ import Messages
 
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
 public struct MailComposeView: UIViewControllerRepresentable {
+    /// Callback type used when a ``MailComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = (_ result: MFMailComposeResult, _ error: Error?) -> Void
     
     public var initialMailInfo: MailInfo
