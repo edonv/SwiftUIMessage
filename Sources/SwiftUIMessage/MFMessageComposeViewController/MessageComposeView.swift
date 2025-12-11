@@ -29,7 +29,10 @@ public struct MessageComposeView: UIViewControllerRepresentable {
     /// - Parameters:
     ///   - initialMessageInfo: Sets the initial values of the ``MessageComposeView``.
     ///   - completionHandler: A handler that is called when the view is closed.
-    public init(_ initialMessageInfo: MessageInfo, _ completionHandler: CompletionHandler? = nil) {
+    public init(
+        _ initialMessageInfo: MessageInfo,
+        _ completionHandler: CompletionHandler? = nil
+    ) {
         self.initialMessageInfo = initialMessageInfo
         self.completionHandler = completionHandler
     }
