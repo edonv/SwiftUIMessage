@@ -16,7 +16,9 @@ Always be sure to call `MailComposeView.canSendMail()` and `MessageComposeView.c
 It's generally best to use them in a `.sheet()` modifier, but the code below is just for the sake of example.
 
 ## Examples
+
 ### MailComposeView
+
 ```swift
 // This will return false if the device cannot use Apple Mail.
 if MailComposeView.canSendMail() {
@@ -39,6 +41,7 @@ if MailComposeView.canSendMail() {
 ```
 
 ### MessageComposeView
+
 ```swift
 if MessageComposeView.canSendText() {
     MessageComposeView(
