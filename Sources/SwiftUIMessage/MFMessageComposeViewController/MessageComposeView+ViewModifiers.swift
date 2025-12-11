@@ -37,6 +37,7 @@ extension MessageComposeView {
         /// Attaches a specified file to the message.
         ///
         /// You can add zero or more attachments to a message before you display the message to the user. To access information about a message’s attachments, access the attachments property.
+        /// 
         /// - Parameters:
         ///   - attachmentURL: The file URL for the attachment. Must not be `nil`.
         ///   - alternateFilename: If you supply a string here, the message UI uses it for the attachment. Use an alternate filename to better describe the attachment or to make the name more readable. OK to use a `nil` value, in which case the attachment’s actual filename is displayed in the message UI.
