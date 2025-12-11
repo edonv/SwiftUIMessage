@@ -58,7 +58,7 @@ public struct MailComposeView: UIViewControllerRepresentable {
         MCCoordinator(self)
     }
     
-    public mutating func addAttachments(_ attachments: [AttachmentData]) {
+    mutating func addAttachments(_ attachments: [AttachmentData]) {
         self.attachments.append(contentsOf: attachments)
     }
 }
