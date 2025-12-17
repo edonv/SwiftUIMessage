@@ -14,6 +14,13 @@ extension View where Self == MailComposeView {
         newView.addAttachments(attachments)
         return newView
     }
+    
+    /// Attaches the specified attachment(s) to the email.
+    public func withAttachments(_ attachments: [MailComposeView.AttachmentData]) -> MailComposeView {
+        var newView = self
+        newView.addAttachments(attachments)
+        return newView
+    }
 }
 
 extension MailComposeView {
