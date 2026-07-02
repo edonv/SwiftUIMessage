@@ -107,7 +107,7 @@ extension MessageComposeView {
             self.parent = parent
         }
         
-        public func messageComposeViewController(
+        public nonisolated func messageComposeViewController(
             _ controller: MFMessageComposeViewController,
             didFinishWith result: MessageComposeResult
         ) {
@@ -120,7 +120,9 @@ extension MessageComposeView {
                     MessageComposeView.DidFinishResultKey: result
                 ])
             
-            controller.dismiss(animated: true)
+            Task { @MainActor in
+                controller.dismiss(animated: true)
+            }
         }
     }
 }
