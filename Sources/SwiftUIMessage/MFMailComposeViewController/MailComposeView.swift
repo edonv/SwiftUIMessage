@@ -77,7 +77,9 @@ public struct MailComposeView: UIViewControllerRepresentable {
 // MARK: - MFMailComposeViewControllerDelegate
 
 extension MailComposeView {
+    nonisolated
     public static let DidFinishResultKey = "SwiftUIMessage.MailComposeViewDidFinishResultKey"
+    nonisolated
     public static let DidFinishErrorKey = "SwiftUIMessage.MailComposeViewDidFinishErrorKey"
     
     public class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
