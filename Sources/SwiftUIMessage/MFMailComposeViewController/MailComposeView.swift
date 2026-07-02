@@ -61,8 +61,8 @@ public struct MailComposeView: UIViewControllerRepresentable {
         
     }
     
-    public func makeCoordinator() -> MCCoordinator {
-        MCCoordinator(self)
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
     
     mutating func addAttachments(_ attachments: [AttachmentData]) {
@@ -76,7 +76,7 @@ extension MailComposeView {
     public static let DidFinishResultKey = "SwiftUIMessage.MailComposeViewDidFinishResultKey"
     public static let DidFinishErrorKey = "SwiftUIMessage.MailComposeViewDidFinishErrorKey"
     
-    public class MCCoordinator: NSObject, MFMailComposeViewControllerDelegate {
+    public class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
         internal var parent: MailComposeView
         
         internal init(_ parent: MailComposeView) {
