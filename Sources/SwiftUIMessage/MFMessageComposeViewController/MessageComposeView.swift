@@ -16,8 +16,8 @@ public struct MessageComposeView: UIViewControllerRepresentable {
     /// Callback type used when a ``MessageComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = (_ result: MessageComposeResult) -> Void
     
-    public var initialMessageInfo: MessageInfo
-    public var completionHandler: CompletionHandler?
+    public let initialMessageInfo: MessageInfo
+    public let completionHandler: CompletionHandler?
     
     private var attachments: [Attachment] = []
     
