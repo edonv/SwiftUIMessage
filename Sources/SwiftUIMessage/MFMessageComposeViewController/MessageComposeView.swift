@@ -147,7 +147,6 @@ extension MessageComposeView {
         }
         #endif
         
-        
         /// An array of strings that contains the initial recipients of the message.
         ///
         /// If you want to provide an initial array of one or more recipients for a message, do so before you display it. After the message is displayed you cannot change the value of this property.
