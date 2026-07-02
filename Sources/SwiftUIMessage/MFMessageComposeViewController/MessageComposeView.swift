@@ -82,8 +82,8 @@ public struct MessageComposeView: UIViewControllerRepresentable {
         
     }
     
-    public func makeCoordinator() -> MCCoordinator {
-        MCCoordinator(self)
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
     
     mutating func addAttachments(_ attachments: [Attachment]) {
@@ -96,7 +96,7 @@ public struct MessageComposeView: UIViewControllerRepresentable {
 extension MessageComposeView {
     public static let DidFinishResultKey = "SwiftUIMessage.MessageComposeViewDidFinishResultKey"
     
-    public class MCCoordinator: NSObject, MFMessageComposeViewControllerDelegate {
+    public class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
         internal var parent: MessageComposeView
         
         internal init(_ parent: MessageComposeView) {
