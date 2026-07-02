@@ -58,11 +58,18 @@ public struct MessageComposeView: UIViewControllerRepresentable {
             for a in attachments {
                 switch a {
                 case .url(let attachmentURL, let alternateFilename):
-                    composeVC.addAttachmentURL(attachmentURL, withAlternateFilename: alternateFilename)
+                    composeVC.addAttachmentURL(
+                        attachmentURL,
+                        withAlternateFilename: alternateFilename
+                    )
                     
                 case .data(let attachmentData, let typeIdentifier, let fileName):
                     if MessageComposeView.isSupportedAttachmentUTI(typeIdentifier) {
-                        composeVC.addAttachmentData(attachmentData, typeIdentifier: typeIdentifier, filename: fileName)
+                        composeVC.addAttachmentData(
+                            attachmentData,
+                            typeIdentifier: typeIdentifier,
+                            filename: fileName
+                        )
                     }
                 }
             }
