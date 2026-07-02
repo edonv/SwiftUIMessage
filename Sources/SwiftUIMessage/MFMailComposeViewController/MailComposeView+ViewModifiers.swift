@@ -29,7 +29,7 @@ extension MailComposeView {
     /// The specified data is attached after the message body, but before the user’s signature.
     ///
     /// - Note: You may attach multiple files (using different file names).
-    public struct AttachmentData {
+    public struct AttachmentData: Sendable, Hashable {
         public init(attachment: Data, mimeType: String, fileName: String) {
             self.attachment = attachment
             self.mimeType = mimeType
