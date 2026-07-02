@@ -19,11 +19,6 @@ public struct MessageComposeView: UIViewControllerRepresentable {
     public var initialMessageInfo: MessageInfo
     public var completionHandler: CompletionHandler?
     
-    /// Disables the camera/attachment button in the message composition view.
-    ///
-    /// Set this property to `true` to disable the camera/attachment button in the message composition view.
-    internal var disableUserAttachments: Bool = false
-    
     private var attachments: [Attachment] = []
     
     /// Creates a new ``MessageComposeView``.
@@ -55,7 +50,7 @@ public struct MessageComposeView: UIViewControllerRepresentable {
         composeVC.message = initialMessageInfo.message
         #endif
 
-        if disableUserAttachments {
+        if context.environment.messageComposeViewDisableUserAttachments {
             composeVC.disableUserAttachments()
         }
         

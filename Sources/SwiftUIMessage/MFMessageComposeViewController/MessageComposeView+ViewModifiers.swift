@@ -11,10 +11,8 @@ extension View where Self == MessageComposeView {
     /// Disables the camera/attachment button in the message composition view.
     ///
     /// Call this method to disable the camera/attachment button in the message composition view.
-    public func disableUserAttachments(_ disable: Bool = true) -> MessageComposeView {
-        var newView = self
-        newView.disableUserAttachments = disable
-        return newView
+    public func messageComposeViewDisableUserAttachments(_ disable: Bool = true) -> some View {
+        self.environment(\.messageComposeViewDisableUserAttachments, disable)
     }
     
     /// Attaches the specified attachment(s) to the message.
