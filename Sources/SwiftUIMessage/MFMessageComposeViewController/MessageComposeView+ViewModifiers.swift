@@ -58,7 +58,7 @@ extension MessageComposeView {
         ///
         /// - Parameters:
         ///   - attachmentData: Content in the form of an [NSData](https://developer.apple.com/documentation/foundation/nsdata) object to attach to the message. Must not be `nil`.
-        ///   - alternateFilename: A valid Uniform Type Identifier (UTI) appropriate for the attachment data. See [Uniform Type Identifiers Reference](https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257). Must not be `nil`.
+        ///   - typeIdentifier: A valid Uniform Type Identifier (UTI) appropriate for the attachment data. See [Uniform Type Identifiers Reference](https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257). Must not be `nil`.
         ///   - filename: The name to present to the user, in the message UI, for the data attachment.
         case data(attachmentData: Data, typeIdentifier: String, fileName: String)
     }
