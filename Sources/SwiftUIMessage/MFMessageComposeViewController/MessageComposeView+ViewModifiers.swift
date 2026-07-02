@@ -40,7 +40,7 @@ extension MessageComposeView {
     /// > Important: When sending attachments, it'll first be confirmed internally that they can be used by checking ``MessageComposeView/canSendAttachments()``.
     ///
     /// > Important: When using an attachment of type ``MessageComposeView/Attachment/data(attachmentData:typeIdentifier:fileName:)``, it'll first be confirmed internally that it can be used by checking it against ``MessageComposeView/isSupportedAttachmentUTI(_:)``.
-    public enum Attachment {
+    public enum Attachment: Sendable, Hashable {
         /// Attaches a specified file to the message.
         ///
         /// You can add zero or more attachments to a message before you display the message to the user. To access information about a message’s attachments, access the attachments property.
