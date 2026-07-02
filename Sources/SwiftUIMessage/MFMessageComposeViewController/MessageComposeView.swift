@@ -118,7 +118,7 @@ extension MessageComposeView {
 
 extension MessageComposeView {
     /// Used to set the initial message information.
-    public struct MessageInfo: Hashable {
+    public struct MessageInfo: @unchecked Sendable, Hashable {
         public init(
             recipients: [String]? = nil,
             subject: String? = nil,
@@ -143,7 +143,7 @@ extension MessageComposeView {
             message: MSMessage?
         ) {
             self.init(recipients: recipients, subject: subject, body: body)
-            self.message = message
+            self._message = message
         }
         #endif
         
@@ -173,7 +173,12 @@ extension MessageComposeView {
         /// By default, this property is set to `nil`.
         ///
         /// For more information on creating iMessage apps, see [Messages](https://developer.apple.com/documentation/messages).
-        public var message: MSMessage?
+        public var message: MSMessage? {
+            _message
+        }
+        
+        /// Private property that won't be touchable.
+        private var _message: MSMessage?
         #endif
     }
 }
