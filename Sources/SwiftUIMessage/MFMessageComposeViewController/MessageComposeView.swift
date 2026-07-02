@@ -96,7 +96,10 @@ extension MessageComposeView {
             self.parent = parent
         }
         
-        public func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        public func messageComposeViewController(
+            _ controller: MFMessageComposeViewController,
+            didFinishWith result: MessageComposeResult
+        ) {
             parent.completionHandler?(result)
             
             NotificationCenter.default.post(
