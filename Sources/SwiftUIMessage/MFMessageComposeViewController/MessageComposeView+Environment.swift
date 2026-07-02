@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension EnvironmentValues {
-    /// Disables the camera/attachment button in the message composition view.
+    /// Disables the camera/attachment button in a ``MessageComposeView`` in the `Environment`.
     ///
     /// Set this property to `true` to disable the camera/attachment button in the message composition view.
     @Entry
