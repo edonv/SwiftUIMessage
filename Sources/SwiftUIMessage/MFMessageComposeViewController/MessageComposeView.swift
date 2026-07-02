@@ -184,6 +184,8 @@ extension MessageComposeView {
 
 // MARK: - Convenience Access to Class Functions
 
+import UniformTypeIdentifiers
+
 extension MessageComposeView {
     /// Returns a Boolean value that indicates whether the current device is capable of sending text messages.
     ///
@@ -212,6 +214,14 @@ extension MessageComposeView {
     /// - Returns: `true` if a file with the specified UTI can be attached to the message, or `false` otherwise.
     public static func isSupportedAttachmentUTI(_ uti: String) -> Bool {
         MFMessageComposeViewController.isSupportedAttachmentUTI(uti)
+    }
+    
+    /// Indicates whether or not the message can accept a file, with the specified UTI, as an attachment.
+    /// - Parameter uti: The UTI (Uniform Type Identifier) in question. See [Uniform Type Identifiers Reference](https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009257).
+    /// - Returns: `true` if a file with the specified UTI can be attached to the message, or `false` otherwise.
+    @available(iOS 14.0, macCatalyst 14.0, visionOS 1.0, *)
+    public static func isSupportedAttachmentUTI(_ uti: UTType) -> Bool {
+        MFMessageComposeViewController.isSupportedAttachmentUTI(uti.identifier)
     }
 }
 
