@@ -14,7 +14,7 @@ import Messages
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
 public struct MessageComposeView: UIViewControllerRepresentable {
     /// Callback type used when a ``MessageComposeView`` disappears, whether cancelled, sent, etc.
-    public typealias CompletionHandler = (_ result: MessageComposeResult) -> Void
+    public typealias CompletionHandler = @Sendable (_ result: MessageComposeResult) -> Void
     
     public let initialMessageInfo: MessageInfo
     public let completionHandler: CompletionHandler?
