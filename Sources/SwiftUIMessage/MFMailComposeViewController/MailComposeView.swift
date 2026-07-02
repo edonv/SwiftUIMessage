@@ -8,7 +8,11 @@
 import SwiftUI
 import MessageUI
 
+/// A standard view, whose interface lets the user manage, edit, and send email messages.
+///
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
+///
+/// > See Also: [`MFMailComposeViewController`](https://developer.apple.com/documentation/messageui/mfmailcomposeviewcontroller)
 public struct MailComposeView: UIViewControllerRepresentable {
     /// Callback type used when a ``MailComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = @Sendable (_ result: MFMailComposeResult, _ error: Error?) -> Void

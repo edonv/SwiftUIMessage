@@ -11,7 +11,11 @@ import MessageUI
 import Messages
 #endif
 
+/// A standard view whose interface lets the user compose and send SMS or MMS messages.
+///
 /// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
+///
+/// > See Also: [`MFMessageComposeViewController`](https://developer.apple.com/documentation/messageui/mfmessagecomposeviewcontroller)
 public struct MessageComposeView: UIViewControllerRepresentable {
     /// Callback type used when a ``MessageComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = @Sendable (_ result: MessageComposeResult) -> Void
