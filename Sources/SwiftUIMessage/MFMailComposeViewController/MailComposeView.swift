@@ -89,7 +89,11 @@ extension MailComposeView {
             self.parent = parent
         }
         
-        public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        public func mailComposeController(
+            _ controller: MFMailComposeViewController,
+            didFinishWith result: MFMailComposeResult,
+            error: Error?
+        ) {
             parent.completionHandler?(result, error)
             
             NotificationCenter.default.post(
