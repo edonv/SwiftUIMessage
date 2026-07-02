@@ -13,8 +13,8 @@ public struct MailComposeView: UIViewControllerRepresentable {
     /// Callback type used when a ``MailComposeView`` disappears, whether cancelled, sent, etc.
     public typealias CompletionHandler = (_ result: MFMailComposeResult, _ error: Error?) -> Void
     
-    public var initialMailInfo: MailInfo
-    public var completionHandler: CompletionHandler?
+    public let initialMailInfo: MailInfo
+    public let completionHandler: CompletionHandler?
     
     private var attachments: [AttachmentData] = []
     
