@@ -98,6 +98,7 @@ public struct MessageComposeView: UIViewControllerRepresentable {
 // MARK: - MFMessageComposeViewControllerDelegate
 
 extension MessageComposeView {
+    nonisolated
     public static let DidFinishResultKey = "SwiftUIMessage.MessageComposeViewDidFinishResultKey"
     
     public class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
