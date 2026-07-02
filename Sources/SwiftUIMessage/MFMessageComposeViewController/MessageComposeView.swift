@@ -13,7 +13,7 @@ import Messages
 
 /// A standard view whose interface lets the user compose and send SMS or MMS messages.
 ///
-/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
+/// To be notified of the `View`'s completion separate from ``completionHandler``, register as an observer of the `Notification.Name.MessageComposeViewDidFinish` notification.
 ///
 /// > See Also: [`MFMessageComposeViewController`](https://developer.apple.com/documentation/messageui/mfmessagecomposeviewcontroller)
 public struct MessageComposeView: UIViewControllerRepresentable {

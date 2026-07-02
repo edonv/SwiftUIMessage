@@ -10,7 +10,7 @@ import MessageUI
 
 /// A standard view, whose interface lets the user manage, edit, and send email messages.
 ///
-/// To be notified of the `View`'s completion and to obtain its completion result, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
+/// To be notified of the `View`'s completion separate from ``completionHandler``, register as an observer of the `Notifiction.Name.MailComposeViewDidFinish` notification.
 ///
 /// > See Also: [`MFMailComposeViewController`](https://developer.apple.com/documentation/messageui/mfmailcomposeviewcontroller)
 public struct MailComposeView: UIViewControllerRepresentable {
