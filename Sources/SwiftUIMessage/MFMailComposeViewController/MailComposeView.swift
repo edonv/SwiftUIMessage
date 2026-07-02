@@ -104,7 +104,9 @@ extension MailComposeView {
                     MailComposeView.DidFinishErrorKey: error as Any
                 ])
             
-            controller.dismiss(animated: true)
+            Task { @MainActor in
+                controller.dismiss(animated: true)
+            }
         }
     }
 }
